@@ -1,26 +1,51 @@
 #include "monty.h"
 
-
-char * get_op(char *str, instruction_t ops, unsigned int lineNum)
+char *get_op(char *str, instruction_t ops[], stack_t **myStack, unsigned int lineNum)
 {
-    int i = 0, j = 0;
-    instruction_t operator = ops;
-    char * command = "push"; 
+    int i = 0;
+    char *token;
+    char *delim = " \n\0";
+    char *opcode;
+    stack_t *stack = malloc(sizeof(stack_t));
+    stack_t *findLast;
+    int data = 0;
 
-            i = 0;
-            j = 0;
-            while(str[i])
+    token = strtok(str, delim);
+
+    for (i = 0; ops[i].opcode; i++)
+    {
+        if (strcmp(ops[i].opcode, token) == 0)
+        {
+            while (token != NULL)
             {
-
-                while(str[i] == operator->opcode[j])
+                printf("data %s", token);
+                token = strtok(NULL, delim);
+                if (token != NULL)
                 {
-                    j++;
+                    data = atoi(token);
+                    stack->n = data;
+                    stack->next = NULL;
+                    if (*myStack == NULL)
+                    {
+                        *myStack = stack;
+                    }
+                    else
+                    {
+                        findLast = *myStack;
+                        while (findLast != NULL)
+                        {
+                            if (findLast->next == NULL)
+                            {
+                                findLast->next = stack;
+                                break;
+                            }
+                            findLast = findLast->next;
+                        }
+                    }
                 }
-                i++;
-                if (j == 3)
-                {
-                      ops->f();
-                }
-                
-             }
+            }
+            ops[i].f(myStack, lineNum);
+        }
+    }
 }
+
