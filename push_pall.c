@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	{NULL, NULL}
     };
     
-    my_stack = NULL;
+    *my_stack = NULL;
 
     
 
