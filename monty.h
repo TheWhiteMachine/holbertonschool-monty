@@ -7,8 +7,6 @@
 #include <unistd.h>
 #include <ctype.h>
 
-
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,7 +38,6 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, unsigned int lineNum);
-char *get_op(char *str, instruction_t ops[], stack_t **stack, unsigned int lineNum);
-
+int get_op(char *str, instruction_t ops[]);
 
 #endif
