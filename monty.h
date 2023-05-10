@@ -40,6 +40,6 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, unsigned int lineNum);
-int get_op(char *str, instruction_t ops[]);
+int get_op(char *str, instruction_t ops[], unsigned int lineNum);
 
 #endif

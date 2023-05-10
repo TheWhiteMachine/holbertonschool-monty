@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int get_op(char *str, instruction_t ops[])
+int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 {
     int i = 0;
 
@@ -11,6 +11,6 @@ int get_op(char *str, instruction_t ops[])
             return (i);
         }
     }
-
-    exit(1);
+    printf("L<%d>: unknown instruction <%s>", lineNum, str);
+    exit(EXIT_FAILURE);
 }
