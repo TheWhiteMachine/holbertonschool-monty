@@ -3,6 +3,7 @@
 void push(stack_t **stack, unsigned int lineNum)
 {
     puts("push starting");
+    printf("data recibida %d\n", data);
     // stack_t *myStack = NULL;
     // int num = lineNum;
 
@@ -78,7 +79,7 @@ int main(int argc, char *argv[])
     int opIndex = 0;
     char *opcode;
     char *token;
-    int data;
+    extern int data;
     // instrucions structure
     instruction_t ops[] = {
         {"push", push},
@@ -106,7 +107,6 @@ int main(int argc, char *argv[])
         if (token != NULL)
         {
             data = atoi(token);
-            printf("data en token: %d", data);
         }
 
         ops[opIndex].f(my_stack, lineNum);
