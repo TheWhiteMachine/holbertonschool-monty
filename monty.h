@@ -40,7 +40,9 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, unsigned int lineNum);
+void pall(stack_t **stack, unsigned int lineNum);
 int get_op(char *str, instruction_t ops[], unsigned int lineNum);
 void charCheck(char *str, int lineNum);
+int _isdigit(char ch);
 
 #endif

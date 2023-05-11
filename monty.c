@@ -30,6 +30,7 @@ void push(stack_t **stack, unsigned int lineNum)
 
 void pall(stack_t **stack, unsigned int lineNum)
 {
+    puts("pall start");
     stack_t *myStack;
     myStack = malloc(sizeof(stack_t));
     myStack = *stack;
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
     int opIndex = 0;
     char *opcode, *token;
     extern int data;
+
 
     // instrucions structure
     instruction_t ops[] = {
@@ -87,28 +89,21 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-
-
-
     while (fgets(str, 80, file_ptr) != NULL)
     {
-
-        token = strtok(str, " \t");
-
+        lineNum++;
+        token = strtok(str, " \t\n");
         opcode = strdup(token);
         opIndex = get_op(opcode, ops, lineNum);
-        token = strtok(NULL, " \t");
-        printf("L<%d> token : %s\n", lineNum, token);
+   
+        token = strtok(NULL, " \t\n");
+
         
-        if (token == NULL)
-        {
-           charCheck(token, lineNum);
 
+      //  charCheck(token, lineNum);
+        if (token != NULL)
             data = atoi(token);
-        }
-
         ops[opIndex].f(my_stack, lineNum);
-        lineNum++;
     }
 
     fclose(file_ptr);

@@ -7,12 +7,15 @@ void charCheck(char *str, int lineNum)
 
     while(str[i])
     {
-        if(isdigit(str[i] == 0))
+        if(isdigit(str[i]) != 0)
         {
             isChar = 1;
-                fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
-                exit(EXIT_FAILURE);
         }
-    continue;
+        i++;
+    }
+    if (isChar == 1)
+    {
+        fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
+        exit(EXIT_FAILURE);
     }
 }
