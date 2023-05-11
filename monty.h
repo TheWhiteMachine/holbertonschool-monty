@@ -41,5 +41,6 @@ typedef struct instruction_s
 
 void push(stack_t **stack, unsigned int lineNum);
 int get_op(char *str, instruction_t ops[], unsigned int lineNum);
+void charCheck(char *str, int lineNum);
 
 #endif

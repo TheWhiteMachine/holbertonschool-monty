@@ -10,7 +10,8 @@ int get_op(char *str, instruction_t ops[], unsigned int lineNum)
         {
             return (i);
         }
-    }
-    printf("L<%d>: unknown instruction <%s>", lineNum, str);
+            printf("opNum %d str %s\n", i, str);
+    printf("L<%d>: unknown instruction <opcode>\n", lineNum);
     exit(EXIT_FAILURE);
+    }
 }

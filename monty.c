@@ -3,7 +3,6 @@
 void push(stack_t **stack, unsigned int lineNum)
 {
     stack_t *myStack = NULL;
-    int num = lineNum;
 
     myStack = malloc(sizeof(stack_t));
     if (!myStack)
@@ -45,23 +44,28 @@ void pall(stack_t **stack, unsigned int lineNum)
  * main - main function
  * @argc: count of args
  * @argv: vector of args
- * Return: 0000000000000
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
     char str[80];
     FILE *file_ptr;
     unsigned int lineNum = 1;
+    unsigned int errorLine = 0;
+    int errorHappend = 0;
     stack_t **my_stack;
     int opIndex = 0;
     char *opcode, *token;
     extern int data;
+
     // instrucions structure
     instruction_t ops[] = {
         {"push", push},
         {"pall", pall},
         {NULL, NULL}};
+
     my_stack = malloc(sizeof(stack_t));
+
     if (!my_stack)
     {
         fprintf(stderr, "Error: malloc failed");
@@ -70,34 +74,41 @@ int main(int argc, char *argv[])
     *my_stack = NULL;
 
     if (argc != 2)
-        fprintf(stderr, "USAGE: monty file\n");
+    {
+        fprintf(stderr, "USAGE: monty file");
+        exit(EXIT_FAILURE);
+    }
 
     file_ptr = fopen(argv[1], "r");
 
     if (file_ptr == NULL)
     {
-        fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
-        exit(1);
+        fprintf(stderr, "Error: Can't open file <%s>", argv[1]);
+        exit(EXIT_FAILURE);
     }
+
+
+
 
     while (fgets(str, 80, file_ptr) != NULL)
     {
+
         token = strtok(str, " \t");
+
         opcode = strdup(token);
         opIndex = get_op(opcode, ops, lineNum);
         token = strtok(NULL, " \t");
-        if (token != NULL)
+        printf("L<%d> token : %s\n", lineNum, token);
+        
+        if (token == NULL)
         {
+           charCheck(token, lineNum);
+
             data = atoi(token);
-            if (isdigit(data) == 0)
-            {
-                fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
-                exit(EXIT_FAILURE);
-            }
         }
 
-        lineNum++;
         ops[opIndex].f(my_stack, lineNum);
+        lineNum++;
     }
 
     fclose(file_ptr);
