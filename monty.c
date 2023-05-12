@@ -65,8 +65,6 @@ int main(int argc, char *argv[])
 	char str[80];
 	FILE *file_ptr;
 	unsigned int lineNum = 1;
-	unsigned int errorLine = 0;
-	int errorHappend = 0;
 	stack_t **my_stack;
 	int opIndex = 0;
 	char *opcode, *token;
@@ -81,7 +79,16 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file");
 		exit(EXIT_FAILURE);
 	}
-	setList(my_stack);
+
+	my_stack = malloc(sizeof(stack_t));
+
+	if (!my_stack)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	*my_stack = NULL;
+
 	file_ptr = fopen(argv[1], "r");
 	if (file_ptr == NULL)
 	{
@@ -91,7 +98,7 @@ int main(int argc, char *argv[])
 	while (fgets(str, 80, file_ptr) != NULL)
 	{
 		token = strtok(str, " \t\n");
-		opcode = strdup(token);
+		opcode = token;
 		opIndex = get_op(opcode, ops, lineNum);
 		token = strtok(NULL, " \t\n");
 		if (token != NULL)

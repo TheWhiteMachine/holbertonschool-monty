@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void setList(stack_t **stack)
+stack_t **setList(stack_t **stack)
 {
 	stack_t **my_stack;
 
@@ -12,4 +12,6 @@ void setList(stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	*my_stack = NULL;
+
+	return(my_stack);
 }
