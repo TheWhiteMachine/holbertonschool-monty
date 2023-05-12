@@ -44,6 +44,5 @@ void pall(stack_t **stack, unsigned int lineNum);
 int get_op(char *str, instruction_t ops[], unsigned int lineNum);
 void charCheck(char *str, int lineNum);
 int _isdigit(char ch);
-stack_t **setList(stack_t **stack);
 
 #endif
