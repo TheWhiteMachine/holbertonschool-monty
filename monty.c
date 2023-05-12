@@ -9,6 +9,7 @@
 void push(stack_t **stack, unsigned int lineNum)
 {
 	stack_t *myStack = NULL;
+	(void)lineNum;
 
 	myStack = malloc(sizeof(stack_t));
 
@@ -43,6 +44,7 @@ void push(stack_t **stack, unsigned int lineNum)
 
 void pall(stack_t **stack, unsigned int lineNum)
 {
+	(void)lineNum;
 	stack_t *myStack;
 
 	myStack = malloc(sizeof(stack_t));
