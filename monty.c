@@ -99,6 +99,7 @@ int main(int argc, char *argv[])
 	}
 	while (fgets(str, 80, file_ptr) != NULL)
 	{
+		data = 0;
 		token = strtok(str, " \t\n");
 		opcode = token;
 		opIndex = get_op(opcode, ops, lineNum);
