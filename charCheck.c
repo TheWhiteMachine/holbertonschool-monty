@@ -10,9 +10,9 @@ void charCheck(char *str, int lineNum)
 	int i = 0;
 	int isChar = 0;
 
-	while(str[i])
+	while (str[i])
 	{
-		if(isdigit(str[i]) != 0)
+		if (isdigit(str[i]) != 0)
 		{
 			isChar = 1;
 		}

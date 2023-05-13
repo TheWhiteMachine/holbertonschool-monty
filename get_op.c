@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
  * get_op - function to get instructions.
- *  @str: a string 
+ *  @str: a string.
  *  @ops: a instruction.
  *  @lineNum: number of line.
- * 
- *  Return: an int to the instruction. 
+ *
+ *  Return: an int to the instruction.
 */
 int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 {

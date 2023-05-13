@@ -9,7 +9,6 @@ void pall(stack_t **stack, unsigned int lineNum)
 {
 	(void)lineNum;
 	stack_t *myStack;
-
 	myStack = *stack;
 	while (myStack)
 	{
@@ -23,10 +22,9 @@ void pall(stack_t **stack, unsigned int lineNum)
  * @stack: a linked list to print
  * @lineNum: line number of instructions.
  */
-
 void push(stack_t **stack, unsigned int lineNum)
 {
-    extern int data;
+	extern int data;
 
 	stack_t *myStack = NULL;
 
