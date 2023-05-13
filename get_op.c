@@ -12,7 +12,7 @@ int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 		}
 		i++;
 	}
-	printf("L%d: unknown instruction %s\n", lineNum, str);
+	fprintf(stderr, "L%d: unknown instruction %s\n", lineNum, str);
 	exit(EXIT_FAILURE);
 
 
