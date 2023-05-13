@@ -20,7 +20,7 @@ void charCheck(char *str, int lineNum)
 	}
 	if (isChar == 1)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
+		fprintf(stderr, "L%d: usage: push integer\n", lineNum);
 		exit(EXIT_FAILURE);
 	}
 }

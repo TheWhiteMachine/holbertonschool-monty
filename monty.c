@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int lineNum)
 
 	if (!myStack)
 	{
-		fprintf(stderr, "%s", "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -100,26 +100,36 @@ int main(int argc, char *argv[])
 	while (fgets(str, 80, file_ptr) != NULL)
 	{
 		data = 0;
-		token = strtok(str, " \t\n");
-		opcode = token;
-		opIndex = get_op(opcode, ops, lineNum);
-		token = strtok(NULL, " \t\n");
-		if (token != NULL)
+		if (str != NULL)
 		{
-			if (strcmp(token, "0") == 0 || strcmp(token, "-0") == 0)
-				data = 0;
-			else
+			token = strtok(str, " \t\n");
+
+			if (token == NULL || strcmp(token, "\n") == 0)
 			{
-				data = atoi(token);
-				if (data == 0)
+				lineNum++;
+				continue;
+			}
+			opcode = token;
+			opIndex = get_op(opcode, ops, lineNum);
+			token = strtok(NULL, " \t\n");
+			if (token != NULL)
+			{
+				if (strcmp(token, "0") == 0 || strcmp(token, "-0") == 0)
+					data = 0;
+				else
 				{
-					fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
-					exit(EXIT_FAILURE);
+					data = atoi(token);
+					if (data == 0)
+					{
+						fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
+						exit(EXIT_FAILURE);
+					}
 				}
 			}
 		}
 		lineNum++;
-		ops[opIndex].f(my_stack, lineNum);
+		if (opcode != NULL || opIndex != '\0')
+			ops[opIndex].f(my_stack, lineNum);
 	}
 	fclose(file_ptr);
 	return (0);
