@@ -2,7 +2,8 @@
 
 /**
  * charCheck - Function to check chars.
- *
+ * @str: pointer to string.
+ * @lineNum: number of line integer.
  */
 
 void charCheck(char *str, int lineNum)

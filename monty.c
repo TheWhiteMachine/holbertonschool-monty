@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pall - add an elment on top of a linked list
+ * push - add an elment on top of a linked list
  * @stack: a linked list to print
  * @lineNum: line number of instrucci
  */
