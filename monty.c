@@ -137,5 +137,6 @@ int main(int argc, char *argv[])
 			ops[opIndex].f(my_stack, lineNum);
 	}
 	fclose(file_ptr);
+	free(my_stack);
 	return (0);
 }
