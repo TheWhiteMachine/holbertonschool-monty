@@ -1,68 +1,13 @@
 #include "monty.h"
 
 /**
- * push - add an elment on top of a linked list
- * @stack: a linked list to print
- * @lineNum: line number of instructions.
- */
-
-void push(stack_t **stack, unsigned int lineNum)
-{
-	stack_t *myStack = NULL;
-	(void)lineNum;
-
-	myStack = malloc(sizeof(stack_t));
-
-	if (!myStack)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free(myStack);
-		exit(EXIT_FAILURE);
-	}
-
-	if (!*stack)
-	{
-		myStack->n = data;
-		myStack->prev = NULL;
-		myStack->next = NULL;
-		*stack = myStack;
-	}
-	else
-	{
-		myStack->n = data;
-		myStack->prev = NULL;
-		myStack->next = *stack;
-		(*stack)->prev = myStack;
-		*stack = myStack;
-	}
-	
-}
-
-/**
- * pall - print all the list
- * @stack: a linked list to print
- * @lineNum: line number of instrucci
- */
-
-void pall(stack_t **stack, unsigned int lineNum)
-{
-	(void)lineNum;
-	stack_t *myStack;
-
-	myStack = *stack;
-	while (myStack)
-	{
-		printf("%d\n", myStack->n);
-		myStack = myStack->next;
-	}
-}
-
-/**
  * main - main function
  * @argc: count of args
  * @argv: vector of args
  * Return: 0 or 1 on error.
  */
+int data; 
+
 int main(int argc, char *argv[])
 {
 	char str[80];
@@ -71,7 +16,7 @@ int main(int argc, char *argv[])
 	stack_t **my_stack;
 	int opIndex = 0;
 	char *opcode, *token;
-	extern int data;
+
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
@@ -82,16 +27,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	my_stack = malloc(sizeof(stack_t));
-
 	if (!my_stack)
 	{
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
 	*my_stack = NULL;
-
 	file_ptr = fopen(argv[1], "r");
 	if (file_ptr == NULL)
 	{
@@ -104,7 +46,6 @@ int main(int argc, char *argv[])
 		if (str != NULL)
 		{
 			token = strtok(str, " \t\n");
-
 			if (token == NULL || strcmp(token, "\n") == 0)
 			{
 				lineNum++;
