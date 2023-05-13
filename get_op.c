@@ -20,6 +20,5 @@ int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 		i++;
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", lineNum, str);
-	free(ops);
 	exit(EXIT_FAILURE);
 }
