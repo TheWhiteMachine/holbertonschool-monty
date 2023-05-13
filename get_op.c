@@ -1,9 +1,11 @@
 #include "monty.h"
 /**
  * get_op - function to get instructions.
+ *  @str: a string 
+ *  @ops: a instruction.
+ *  @lineNum: number of line.
  * 
- * 
- * 
+ *  Return: an int to the instruction. 
 */
 int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 {
@@ -19,6 +21,4 @@ int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", lineNum, str);
 	exit(EXIT_FAILURE);
-
-
 }

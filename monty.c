@@ -3,7 +3,7 @@
 /**
  * push - add an elment on top of a linked list
  * @stack: a linked list to print
- * @lineNum: line number of instrucci
+ * @lineNum: line number of instructions.
  */
 
 void push(stack_t **stack, unsigned int lineNum)
@@ -16,6 +16,7 @@ void push(stack_t **stack, unsigned int lineNum)
 	if (!myStack)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free(myStack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -60,7 +61,7 @@ void pall(stack_t **stack, unsigned int lineNum)
  * main - main function
  * @argc: count of args
  * @argv: vector of args
- * Return: 0 or exit messages
+ * Return: 0 or 1 on error.
  */
 int main(int argc, char *argv[])
 {
