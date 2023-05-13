@@ -34,6 +34,7 @@ void push(stack_t **stack, unsigned int lineNum)
 		(*stack)->prev = myStack;
 		*stack = myStack;
 	}
+	
 }
 
 /**
@@ -54,6 +55,7 @@ void pall(stack_t **stack, unsigned int lineNum)
 		printf("%d\n", myStack->n);
 		myStack = myStack->next;
 	}
+	free(myStack);
 }
 
 /**
@@ -138,5 +140,6 @@ int main(int argc, char *argv[])
 	}
 	fclose(file_ptr);
 	free(my_stack);
+
 	return (0);
 }
