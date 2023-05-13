@@ -1,4 +1,5 @@
 #include "monty.h"
+int data = 0;
 
 /**
  * main - main function
@@ -6,7 +7,6 @@
  * @argv: vector of args
  * Return: 0 or 1 on error.
  */
-int data; 
 
 int main(int argc, char *argv[])
 {
