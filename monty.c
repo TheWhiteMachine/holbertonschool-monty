@@ -121,10 +121,15 @@ int main(int argc, char *argv[])
 					data = atoi(token);
 					if (data == 0)
 					{
-						fprintf(stderr, "L<%d>: usage: push integer\n", lineNum);
+						fprintf(stderr, "L%d: usage: push integer\n", lineNum);
 						exit(EXIT_FAILURE);
 					}
 				}
+			}
+			else if (strcmp(opcode, "push") == 0)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lineNum);
+				exit(EXIT_FAILURE);
 			}
 		}
 		lineNum++;
