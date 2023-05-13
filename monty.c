@@ -48,7 +48,6 @@ void pall(stack_t **stack, unsigned int lineNum)
 	(void)lineNum;
 	stack_t *myStack;
 
-	myStack = malloc(sizeof(stack_t));
 	myStack = *stack;
 	while (myStack)
 	{
@@ -113,10 +112,6 @@ int main(int argc, char *argv[])
 			opcode = token;
 			opIndex = get_op(opcode, ops, lineNum);
 			token = strtok(NULL, " \t\n");
-			if (token != NULL && strcmp(opcode, "pall") == 0)
-			{
-    		token = strtok(NULL, "");
-			}
 			if (token != NULL)
 			{
 				if (strcmp(token, "0") == 0 || strcmp(token, "-0") == 0)
@@ -142,6 +137,7 @@ int main(int argc, char *argv[])
 			ops[opIndex].f(my_stack, lineNum);
 	}
 	fclose(file_ptr);
+	free(*my_stack);
 
 	return (0);
 }
