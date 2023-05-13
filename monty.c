@@ -80,6 +80,6 @@ int main(int argc, char *argv[])
 	}
 	fclose(file_ptr);
 	free(*my_stack);
-
+    free(my_stack);
 	return (0);
 }
