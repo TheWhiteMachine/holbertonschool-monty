@@ -9,6 +9,7 @@ void pall(stack_t **stack, unsigned int lineNum)
 {
 	(void)lineNum;
 	stack_t *myStack;
+
 	myStack = *stack;
 	while (myStack)
 	{
@@ -22,6 +23,7 @@ void pall(stack_t **stack, unsigned int lineNum)
  * @stack: a linked list to print
  * @lineNum: line number of instructions.
  */
+
 void push(stack_t **stack, unsigned int lineNum)
 {
 	extern int data;
@@ -33,6 +35,7 @@ void push(stack_t **stack, unsigned int lineNum)
 	if (!myStack)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free(myStack);
 		exit(EXIT_FAILURE);
 	}
 	if (!*stack)
