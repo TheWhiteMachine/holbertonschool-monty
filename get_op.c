@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * get_op - function to get instructions.
+ * 
+ * 
+ * 
+*/
 int get_op(char *str, instruction_t ops[], unsigned int lineNum)
 {
 	int i = 0;
