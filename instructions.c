@@ -1,5 +1,5 @@
 #include "monty.h"
-
+int data;
 /**
  * pall - print all the list
  * @stack: a linked list to print
@@ -26,8 +26,6 @@ void pall(stack_t **stack, unsigned int lineNum)
 
 void push(stack_t **stack, unsigned int lineNum)
 {
-	extern int data;
-
 	stack_t *myStack = NULL;
 
 	(void)lineNum;
