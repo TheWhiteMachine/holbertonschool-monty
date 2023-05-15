@@ -49,7 +49,7 @@ void push(stack_t **stack, unsigned int lineNum)
 		myStack->next = *stack;
 		(*stack)->prev = myStack;
 		*stack = myStack;
-		if (*stack = NULL)
+		if (*stack == NULL)
 		{
 			free_stack(stack);
 			free(stack);
