@@ -125,6 +125,8 @@ void swap(stack_t **stack, unsigned int lineNum)
 	stack_t *swapNode = NULL;
 	unsigned int swpToNode = 0;
 
+	(void)lineNum;
+
 	if (*stack && (*stack)->next)
 	{
 		swapNode = (*stack)->next;
