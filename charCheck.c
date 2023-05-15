@@ -26,6 +26,8 @@ void charCheck(char *str, char *opcode, int lineNum, stack_t **stack)
 			exit(0);
 		}
 		fprintf(stderr, "L%d: usage: push integer\n", lineNum);
+		free_stack(stack);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
 }
