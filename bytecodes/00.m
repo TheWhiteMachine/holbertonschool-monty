@@ -1,10 +1,5 @@
-push 1
-pint
-pop
-push 2
-pint
-pop
+push 98
+push 5
 push 3
-pint
 pop
 pall
