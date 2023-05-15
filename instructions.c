@@ -72,7 +72,7 @@ void pint(stack_t **stack, unsigned int lineNum)
 	printf("%d\n", (*stack)->n);
 }
 
-// void pop(stack_t **stack, unsigned int lineNum);
-// void swap(stack_t **stack, unsigned int lineNum);
-// void add(stack_t **stack, unsigned int lineNum);
-// void nop(stack_t **stack, unsigned int lineNum);
+/* void pop(stack_t **stack, unsigned int lineNum);
+void swap(stack_t **stack, unsigned int lineNum);
+void add(stack_t **stack, unsigned int lineNum);
+void nop(stack_t **stack, unsigned int lineNum); */

@@ -17,13 +17,8 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 	while (fgets(str, 80, file_ptr) != NULL)
 	{
 		data = 0;
-		if (str == NULL || strcmp(str, "\n") == 0)
-		{
-			lineNum++;
-			continue;
-		}
 		opcode = strtok(str, " \t\n");
-		if (opcode == NULL)
+		if (str == NULL || strcmp(str, "\n") == 0 || opcode == NULL)
 		{
 			lineNum++;
 			continue;
@@ -42,11 +37,6 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 			data = atoi(token);
 			if (strcmp(token, "0") == 0 && token[0] != '-')
 				data = 0;
-			// if (data == 0 && strcmp(opcode, "push") == 0)
-			//{
-			//	fprintf(stderr, "L%d: usage: push integer\n", lineNum);
-			//	exit(EXIT_FAILURE);
-			// }
 		}
 		else if (strcmp(opcode, "push") == 0)
 		{
