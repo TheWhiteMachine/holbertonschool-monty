@@ -4,11 +4,12 @@
  * main - main function
  * @argc: count of args
  * @argv: vector of args
- * 
+ *
  * Return: 0 or 1 on error.
  */
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	FILE *file_ptr;
 	stack_t **stack;
 	instruction_t ops[] = {
@@ -17,18 +18,21 @@ int main(int argc, char *argv[]) {
 		{NULL, NULL}
 	};
 
-	if (argc != 2) {
+	if (argc != 2)
+	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	stack = malloc(sizeof(stack_t *));
-	if (!stack) {
+	if (!stack)
+	{
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
 	*stack = NULL;
 	file_ptr = fopen(argv[1], "r");
-	if (file_ptr == NULL) {
+	if (file_ptr == NULL)
+	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
