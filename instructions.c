@@ -1,5 +1,5 @@
 #include "monty.h"
-int data;
+
 /**
  * pall - print all the list
  * @stack: a linked list to print
@@ -33,6 +33,7 @@ void push(stack_t **stack, unsigned int lineNum)
 	if (!myStack)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	if (!*stack)
@@ -64,9 +65,7 @@ void pint(stack_t **stack, unsigned int lineNum)
         fprintf(stderr, "L%d: can't pint, stack empty\n", lineNum - 1);
         exit(EXIT_FAILURE);
     }
-
     printf("%d\n", (*stack)->n);
-	free(stack);
 }
 
 // void pop(stack_t **stack, unsigned int lineNum);

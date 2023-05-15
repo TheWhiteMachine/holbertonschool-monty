@@ -43,5 +43,6 @@ int main(int argc, char *argv[])
 	}
 	read_file(file_ptr, ops, stack);
 	fclose(file_ptr);
+	free_stack(stack);
 	return (0);
 }

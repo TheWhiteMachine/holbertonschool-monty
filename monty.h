@@ -25,6 +25,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
+	struct stack_s *current;
 } stack_t;
 
 /**
@@ -54,5 +55,6 @@ void nop(stack_t **stack, unsigned int lineNum);
 int get_op(char *str, instruction_t ops[], unsigned int lineNum);
 void charCheck(char *str, int lineNum);
 void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack);
+void free_stack(stack_t **stack);
 
 #endif
