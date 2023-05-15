@@ -5,7 +5,7 @@
  * @str: pointer to string.
  * @lineNum: number of line integer.
  */
-void charCheck(char *str, char *opcode, int lineNum)
+void charCheck(char *str, char *opcode, int lineNum, stack_t **stack)
 {
 	int i = 0;
 	int isChar = 0;
@@ -21,7 +21,10 @@ void charCheck(char *str, char *opcode, int lineNum)
 	if (isChar == 1)
 	{
 		if (strcmp(opcode, "pop") == 0)
+		{
+			free_stack(stack);
 			exit(0);
+		}
 		fprintf(stderr, "L%d: usage: push integer\n", lineNum);
 		exit(EXIT_FAILURE);
 	}

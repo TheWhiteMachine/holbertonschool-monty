@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void someErrorManage(char *token, char *opcode, int lineNum)
+void someErrorManage(char *token, char *opcode, int lineNum, stack_t **stack)
 {
 	if (token != NULL)
 	{
-		charCheck(token, opcode, lineNum);
+		charCheck(token, opcode, lineNum, stack);
 		data = atoi(token);
 		if (strcmp(token, "0") == 0 && token[0] != '-')
 			data = 0;

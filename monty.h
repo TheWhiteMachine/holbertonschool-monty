@@ -53,10 +53,10 @@ void nop(stack_t **stack, unsigned int lineNum);
 
 /* function prototypes */
 int get_op(char *str, instruction_t ops[], unsigned int lineNum);
-void charCheck(char *str, char *opcode, int lineNum);
+void charCheck(char *str, char *opcode, int lineNum, stack_t **stack);
 void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack);
 void free_stack(stack_t **stack);
 void pop(stack_t **stack, unsigned int lineNum);
-void someErrorManage(char *token, char *opcode, int lineNum);
+void someErrorManage(char *token, char *opcode, int lineNum, stack_t **stack);
 
 #endif

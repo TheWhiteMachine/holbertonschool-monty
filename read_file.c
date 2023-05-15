@@ -31,7 +31,7 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 			ops[opIndex].f(stack, lineNum);
 			continue;
 		}
-		someErrorManage(token, opcode, lineNum);
+		someErrorManage(token, opcode, lineNum, stack);
 		lineNum++;
 		if (opcode != NULL && opIndex != -1)
 			ops[opIndex].f(stack, lineNum);
