@@ -55,6 +55,7 @@ void push(stack_t **stack, unsigned int lineNum)
 		*stack = myStack;
 		if (*stack == NULL)
 		{
+			free(myStack);
 			free_stack(stack);
 			free(stack);
 		}
