@@ -56,5 +56,6 @@ int get_op(char *str, instruction_t ops[], unsigned int lineNum);
 void charCheck(char *str, int lineNum);
 void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack);
 void free_stack(stack_t **stack);
+void pop(stack_t **stack, unsigned int lineNum);
 
 #endif
