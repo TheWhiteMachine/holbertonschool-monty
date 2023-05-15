@@ -1,1 +1,2 @@
-pint 5
+push 98
+pint Holberton

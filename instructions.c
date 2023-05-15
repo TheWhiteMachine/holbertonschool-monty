@@ -50,7 +50,6 @@ void push(stack_t **stack, unsigned int lineNum)
 		(*stack)->prev = myStack;
 		*stack = myStack;
 	}
-	free(myStack);
 }
 
 /**
