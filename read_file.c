@@ -44,7 +44,6 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 		else if (strcmp(opcode, "push") == 0)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", lineNum);
-			free_stack(stack);
 			exit(EXIT_FAILURE);
 		}
 		lineNum++;
