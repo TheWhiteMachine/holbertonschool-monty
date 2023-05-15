@@ -9,7 +9,10 @@ void pall(stack_t **stack, unsigned int lineNum)
 {
 	(void)lineNum;
 	stack_t *myStack;
-
+	if (!stack)
+	{
+		free(stack);
+	}
 	myStack = *stack;
 	while (myStack)
 	{
