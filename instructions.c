@@ -33,7 +33,6 @@ void push(stack_t **stack, unsigned int lineNum)
 	if (!myStack)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(myStack);
 		exit(EXIT_FAILURE);
 	}
 	if (!*stack)
@@ -51,6 +50,7 @@ void push(stack_t **stack, unsigned int lineNum)
 		(*stack)->prev = myStack;
 		*stack = myStack;
 	}
+	free(myStack);
 }
 
 /**
