@@ -52,3 +52,24 @@ void push(stack_t **stack, unsigned int lineNum)
 		*stack = myStack;
 	}
 }
+
+/**
+ * pint - prints the value at the top of the stack
+ * @stack: pointer to top of stack
+ * @lineNum: line number of instruction.
+ */
+void pint(stack_t **stack, unsigned int lineNum)
+{
+    if (!*stack)
+    {
+        fprintf(stderr, "L%d: can't pint, stack empty\n", lineNum);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("%d\n", (*stack)->n);
+}
+
+// void pop(stack_t **stack, unsigned int lineNum);
+// void swap(stack_t **stack, unsigned int lineNum);
+// void add(stack_t **stack, unsigned int lineNum);
+// void nop(stack_t **stack, unsigned int lineNum);
