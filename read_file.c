@@ -35,11 +35,11 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 			data = atoi(token);
 			if (strcmp(token, "0") == 0 && token[0] != '-')
 				data = 0;
-			if (data == 0 && strcmp(opcode, "push") == 0)
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", lineNum);
-				exit(EXIT_FAILURE);
-			}
+			//if (data == 0 && strcmp(opcode, "push") == 0)
+			//{
+			//	fprintf(stderr, "L%d: usage: push integer\n", lineNum);
+			//	exit(EXIT_FAILURE);
+			//}
 		}
 		else if (strcmp(opcode, "push") == 0)
 		{
