@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 	if (!stack)
 	{
 		fprintf(stderr, "Error: malloc failed");
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	*stack = NULL;
@@ -39,6 +40,7 @@ int main(int argc, char *argv[])
 	if (file_ptr == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	read_file(file_ptr, ops, stack);
