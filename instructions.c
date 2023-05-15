@@ -8,7 +8,9 @@
 void pall(stack_t **stack, unsigned int lineNum)
 {
 	(void)lineNum;
+
 	stack_t *myStack;
+
 	if (!stack)
 	{
 		free_stack(stack);
@@ -78,7 +80,7 @@ void pint(stack_t **stack, unsigned int lineNum)
 }
 
 /**
- * pop - delete last elent on stack
+ * pop - delete last element on stack
  * @stack: pointer to top of stack
  * @lineNum: line number of instruction.
  */
@@ -120,6 +122,12 @@ void pop(stack_t **stack, unsigned int lineNum)
 	}
 }
 
+/**
+ * swap - swap last element and its previous
+ * @stack: pointer to top of stack
+ * @lineNum: line number of instruction.
+ */
+
 void swap(stack_t **stack, unsigned int lineNum)
 {
 	stack_t *swapNode = NULL;
@@ -148,8 +156,3 @@ void swap(stack_t **stack, unsigned int lineNum)
 		}
 	}
 }
-
-/*
- *void add(stack_t **stack, unsigned int lineNum);
- *void nop(stack_t **stack, unsigned int lineNum);
- */

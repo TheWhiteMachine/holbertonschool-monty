@@ -3,7 +3,9 @@
 /**
  * charCheck - Function to check chars.
  * @str: pointer to string.
+ * @opcode: string with operator
  * @lineNum: number of line integer.
+ * @stack: linked list with data.
  */
 void charCheck(char *str, char *opcode, int lineNum, stack_t **stack)
 {
