@@ -77,6 +77,12 @@ void pint(stack_t **stack, unsigned int lineNum)
 	printf("%d\n", (*stack)->n);
 }
 
+/**
+ * pop - delete last elent on stack
+ * @stack: pointer to top of stack
+ * @lineNum: line number of instruction.
+ */
+
 void pop(stack_t **stack, unsigned int lineNum)
 {
 	stack_t *myStack = NULL;
@@ -114,8 +120,21 @@ void pop(stack_t **stack, unsigned int lineNum)
 	}
 }
 
+void swap(stack_t **stack, unsigned int lineNum)
+{
+	stack_t *swapNode = NULL;
+	unsigned int swpToNode = 0;
+
+	if (*stack && (*stack)->next)
+	{
+		swapNode = (*stack)->next;
+		swpToNode = (*stack)->n;
+		(*stack)->n = swapNode->n;
+		swapNode->n = swpToNode;
+	}
+}
+
 /*
- *void swap(stack_t **stack, unsigned int lineNum);
  *void add(stack_t **stack, unsigned int lineNum);
  *void nop(stack_t **stack, unsigned int lineNum);
  */
