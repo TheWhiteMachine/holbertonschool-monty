@@ -12,7 +12,7 @@ void charCheck(char *str, int lineNum)
 
 	while (str[i])
 	{
-		if (isdigit(str[i]) == 0)
+		if (isdigit(str[i]) == 0 && str[i] != '-')
 		{
 			isChar = 1;
 		}
