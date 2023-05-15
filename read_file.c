@@ -30,6 +30,12 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 		}
 		opIndex = get_op(opcode, ops, lineNum);
 		token = strtok(NULL, " \t\n");
+		if (strcmp(opcode, "pall") == 0)
+		{
+			lineNum++;
+			ops[opIndex].f(stack, lineNum);
+			continue;
+		}
 		if (token != NULL)
 		{
 			charCheck(token, lineNum);
@@ -47,6 +53,7 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 			fprintf(stderr, "L%d: usage: push integer\n", lineNum);
 			exit(EXIT_FAILURE);
 		}
+
 		lineNum++;
 		if (opcode != NULL && opIndex != -1)
 			ops[opIndex].f(stack, lineNum);
