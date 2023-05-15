@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * read_file - function to handle files.
+ * @file_ptr: pointer to the file to be read
+ * @ops: array of operation codes and functions
+ * @stack: pointer to top of the stack
+*/
 int data = 0;
 
 void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
