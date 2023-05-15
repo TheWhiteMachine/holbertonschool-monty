@@ -20,8 +20,7 @@ int main(int argc, char *argv[])
 		// {"swap",swap},
 		// {"add", add},
 		// {"nop", nop},
-		{NULL, NULL}
-	};
+		{NULL, NULL}};
 
 	if (argc != 2)
 	{
@@ -44,5 +43,6 @@ int main(int argc, char *argv[])
 	read_file(file_ptr, ops, stack);
 	fclose(file_ptr);
 	free_stack(stack);
+	free(stack);
 	return (0);
 }
