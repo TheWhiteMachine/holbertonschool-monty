@@ -25,25 +25,13 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 		}
 		opIndex = get_op(opcode, ops, lineNum);
 		token = strtok(NULL, " \t\n");
-		if (strcmp(opcode, "pall") == 0 || strcmp(opcode, "pint") == 0)
+		if (strcmp(opcode, "pall") == 0)
 		{
 			lineNum++;
 			ops[opIndex].f(stack, lineNum);
 			continue;
 		}
-		if (token != NULL)
-		{
-			charCheck(token, lineNum);
-			data = atoi(token);
-			if (strcmp(token, "0") == 0 && token[0] != '-')
-				data = 0;
-		}
-		else if (strcmp(opcode, "push") == 0)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", lineNum);
-			exit(EXIT_FAILURE);
-		}
-
+		someErrorManage(token, opcode, lineNum);
 		lineNum++;
 		if (opcode != NULL && opIndex != -1)
 			ops[opIndex].f(stack, lineNum);
