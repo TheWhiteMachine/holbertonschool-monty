@@ -66,6 +66,7 @@ void pint(stack_t **stack, unsigned int lineNum)
     }
 
     printf("%d\n", (*stack)->n);
+	free(stack);
 }
 
 // void pop(stack_t **stack, unsigned int lineNum);
