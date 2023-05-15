@@ -21,7 +21,7 @@ void add(stack_t **stack, unsigned int lineNum)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't sum, stack too short\n", lineNum - 1);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNum - 1);
 		exit(EXIT_FAILURE);
 	}
 }
