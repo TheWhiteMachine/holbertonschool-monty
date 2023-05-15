@@ -11,6 +11,7 @@ void pall(stack_t **stack, unsigned int lineNum)
 	stack_t *myStack;
 	if (!stack)
 	{
+		free_stack(stack);
 		free(stack);
 	}
 	myStack = *stack;
