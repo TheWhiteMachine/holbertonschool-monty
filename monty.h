@@ -59,7 +59,7 @@ void free_stack(stack_t **stack);
 void pop(stack_t **stack, unsigned int lineNum);
 void swap(stack_t **stack, unsigned int lineNum);
 void someErrorManage(char *token, char *opcode, int lineNum, stack_t **stack);
-void _add(stack_t **stack, unsigned int lineNum);
+void add(stack_t **stack, unsigned int lineNum);
 void nop(stack_t **stack, unsigned int lineNum);
 
 #endif
