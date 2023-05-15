@@ -134,6 +134,19 @@ void swap(stack_t **stack, unsigned int lineNum)
 		(*stack)->n = swapNode->n;
 		swapNode->n = swpToNode;
 	}
+	else
+	{
+		if (!stack)
+		{
+			fprintf(stderr, "L%d: can't swap, stack too short\n", lineNum - 1);
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			fprintf(stderr, "L%d: can't swap, stack too short\n", lineNum - 1);
+			exit(EXIT_FAILURE);
+		}
+	}
 }
 
 /*
