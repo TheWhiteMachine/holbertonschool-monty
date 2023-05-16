@@ -25,14 +25,9 @@ void read_file(FILE *file_ptr, instruction_t *ops, stack_t **stack)
 		}
 		opIndex = get_op(opcode, ops, lineNum);
 		token = strtok(NULL, " \t\n");
-		if (strcmp(opcode, "add") == 0 || strcmp(opcode, "nop") == 0)
+		switch (opIndex)
 		{
-			lineNum++;
-			ops[opIndex].f(stack, lineNum);
-			continue;
-		}
-		if (strcmp(opcode, "pall") == 0 || strcmp(opcode, "swap") == 0)
-		{
+		case 2:
 			lineNum++;
 			ops[opIndex].f(stack, lineNum);
 			continue;

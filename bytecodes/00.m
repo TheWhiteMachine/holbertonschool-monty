@@ -1,3 +1,2 @@
 push 98
-pop Holberton
-pall
+pint Holberton
