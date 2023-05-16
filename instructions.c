@@ -105,8 +105,6 @@ void pop(stack_t **stack, unsigned int lineNum)
 				(*stack)->prev = NULL;
 				if (!(myStack))
 				{
-					free(myStack);
-
 					free_stack(stack);
 					free(*stack);
 					*stack = NULL;
@@ -115,7 +113,9 @@ void pop(stack_t **stack, unsigned int lineNum)
 			}
 			else
 			{
+				free(myStack);
 				free(*stack);
+				myStack = NULL;
 				*stack = NULL;
 			}
 		}
