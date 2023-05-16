@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ *  someErrorManage - some validations for functions
+ * @stack: doble linked list
+ * @lineNum: line number of reed instruction on monty file
+ */
+
 void someErrorManage(char *token, char *opcode, int lineNum, stack_t **stack)
 {
 

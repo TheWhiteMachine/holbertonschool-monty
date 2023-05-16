@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _add - sum last element and its previous and erase one elment
+ * add - sum last element and its previous and erase one elment
  * @stack: pointer to top of stack
  * @lineNum: line number of instruction.
  */
